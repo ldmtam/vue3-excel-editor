@@ -50,205 +50,237 @@ In your template
 
 ```html
 <template>
-    <vue-excel-editor v-model="jsondata">
-        <vue-excel-column field="user"   label="User ID"       type="string" width="80px" />
-        <vue-excel-column field="name"   label="Name"          type="string" width="150px" />
-        <vue-excel-column field="phone"  label="Contact"       type="string" width="130px" />
-        <vue-excel-column field="gender" label="Gender"        type="select" width="50px" :options="['F','M','U']" />
-        <vue-excel-column field="age"    label="Age"           type="number" width="70px" />
-        <vue-excel-column field="birth"  label="Date Of Birth" type="date"   width="80px" />
-    </vue-excel-editor>
+  <vue-excel-editor v-model="jsondata">
+    <vue-excel-column
+      field="user"
+      label="User ID"
+      type="string"
+      width="80px"
+    />
+    <vue-excel-column
+      field="name"
+      label="Name"
+      type="string"
+      width="150px"
+    />
+    <vue-excel-column
+      field="phone"
+      label="Contact"
+      type="string"
+      width="130px"
+    />
+    <vue-excel-column
+      field="gender"
+      label="Gender"
+      type="select"
+      width="50px"
+      :options="['F','M','U']"
+    />
+    <vue-excel-column
+      field="age"
+      label="Age"
+      type="number"
+      width="70px"
+    />
+    <vue-excel-column
+      field="birth"
+      label="Date Of Birth"
+      type="date"
+      width="80px"
+    />
+  </vue-excel-editor>
 </template>
-
 ```
 
 ## Outlook
 
-![Simple Outlook](https://i.imgur.com/bFOA5Lv.png "VueExcelEditor")
+![Simple Outlook](https://i.imgur.com/bFOA5Lv.png 'VueExcelEditor')
 
 ## Props List
 
 ### Prop Component: vue-excel-editor
 
-| Name                  | Mandatory | Type     | Description |
-| :---                  | :---      | :---     | :---        |
-| v-model               | Mandatory | Array    | Edited data in Array Of Object | 
-| page                  | Optional  | Number   | Specific page size, default is auto-calculating by screen height |
-| no-paging             | Optional  | Boolean  | Disable paging feature, default is false |
-| no-num-col            | Optional  | Boolean  | No number column, default is false |
-| filter-row            | Optional  | Boolean  | Show fixed filter row, default is false |
-| no-footer             | Optional  | Boolean  | No footer row, default is false |
-| no-finding            | Optional  | Boolean  | Disable find key (ctrl-f) and finding dialog, default is false |
-| no-finding-next       | Optional  | Boolean  | Disable find-next key (ctrl-g), default is false |
-| free-select           | Optional  | Boolean  | Select multiple rows without pressing ctrl/meta key |
-| autocomplete          | Optional  | Boolean  | Enable autocomplete of all columns, default is false |
-| autocomplete-count    | Optional  | Number   | The maximum length of the autocomplete list, default is 50 |
-| readonly              | Optional  | Boolean  | Set all columns read only, default is false |
-| readonly-style        | Optional  | Object   | The style of the read-only cell |
-| height                | Optional  | String   | Define the exact height in px of the component, default is 'auto' |
-| width                 | Optional  | String   | Define the maximum width in px of the component, default is '100%' |
-| row-style             | Optional  | Function | Conditional row formatting, default is null |
-| cell-style            | Optional  | Function | Conditional cell formatting, default is null |
-| header-label          | Optional  | Function | Func to return the label, parameter are the field label, field object |
+| Name                  | Mandatory | Type     | Description                                                            |
+| :-------------------- | :-------- | :------- | :--------------------------------------------------------------------- |
+| v-model               | Mandatory | Array    | Edited data in Array Of Object                                         |
+| page                  | Optional  | Number   | Specific page size, default is auto-calculating by screen height       |
+| no-paging             | Optional  | Boolean  | Disable paging feature, default is false                               |
+| no-num-col            | Optional  | Boolean  | No number column, default is false                                     |
+| filter-row            | Optional  | Boolean  | Show fixed filter row, default is false                                |
+| no-footer             | Optional  | Boolean  | No footer row, default is false                                        |
+| no-finding            | Optional  | Boolean  | Disable find key (ctrl-f) and finding dialog, default is false         |
+| no-finding-next       | Optional  | Boolean  | Disable find-next key (ctrl-g), default is false                       |
+| free-select           | Optional  | Boolean  | Select multiple rows without pressing ctrl/meta key                    |
+| autocomplete          | Optional  | Boolean  | Enable autocomplete of all columns, default is false                   |
+| autocomplete-count    | Optional  | Number   | The maximum length of the autocomplete list, default is 50             |
+| readonly              | Optional  | Boolean  | Set all columns read only, default is false                            |
+| readonly-style        | Optional  | Object   | The style of the read-only cell                                        |
+| height                | Optional  | String   | Define the exact height in px of the component, default is 'auto'      |
+| width                 | Optional  | String   | Define the maximum width in px of the component, default is '100%'     |
+| row-style             | Optional  | Function | Conditional row formatting, default is null                            |
+| cell-style            | Optional  | Function | Conditional cell formatting, default is null                           |
+| header-label          | Optional  | Function | Func to return the label, parameter are the field label, field object  |
 | record-label          | Optional  | Function | Func to return the label, parameters are recordPosition, record object |
-| localized-label       | Optional  | Object   | Customize labels and messages for localization purpose |
-| n-filter-count        | Optional  | Number   | Number of items to be listed in filter dialog. Default is 200 |
-| remember              | Optional  | Boolean  | Remember the setting in localStorage, default is false |
-| enterToSouth          | Optional  | Boolean  | Move the cell to bottom instead of right when hits enter |
-| allow-add-col         | Optional  | Boolean  | Allow to show the add column button during column resize |
-| add-column            | Optional  | Function | Func to return the column definition when column is adding |
-| no-header-edit        | Optional  | Boolean  | Not allow header label editing |
-| spellcheck            | Optional  | Boolean  | Turn on spellcheck during editing |
-| new-if-bottom         | Optional  | Boolean  | New record if focusing cell reach bottom |
-| disable-panel-setting | Optional  | Boolean  | Hide the setting panel |
-| disable-panel-filter  | Optional  | Boolean  | Hide the filter panel |
-| no-mouse-scroll       | Optional  | Boolean  | Disable the vertical scrolling by mouse |
-| no-sorting            | Optional  | Boolean  | Disable the sorting |
-| no-mass-update        | Optional  | Boolean  | Disable mass update of selected records |
+| localized-label       | Optional  | Object   | Customize labels and messages for localization purpose                 |
+| n-filter-count        | Optional  | Number   | Number of items to be listed in filter dialog. Default is 200          |
+| remember              | Optional  | Boolean  | Remember the setting in localStorage, default is false                 |
+| enterToSouth          | Optional  | Boolean  | Move the cell to bottom instead of right when hits enter               |
+| allow-add-col         | Optional  | Boolean  | Allow to show the add column button during column resize               |
+| add-column            | Optional  | Function | Func to return the column definition when column is adding             |
+| no-header-edit        | Optional  | Boolean  | Not allow header label editing                                         |
+| spellcheck            | Optional  | Boolean  | Turn on spellcheck during editing                                      |
+| new-if-bottom         | Optional  | Boolean  | New record if focusing cell reach bottom                               |
+| disable-panel-setting | Optional  | Boolean  | Hide the setting panel                                                 |
+| disable-panel-filter  | Optional  | Boolean  | Hide the filter panel                                                  |
+| no-mouse-scroll       | Optional  | Boolean  | Disable the vertical scrolling by mouse                                |
+| no-sorting            | Optional  | Boolean  | Disable the sorting                                                    |
+| no-mass-update        | Optional  | Boolean  | Disable mass update of selected records                                |
+| autoRowHeight         | Optional  | Boolean  | Enable automatic row height adjustment based on content                |
 
 ### Prop Component: vue-excel-column
 
-| Name           | Mandatory | Type              | Description |
-| :---           | :---      | :---              | :---        |
-| field          | Mandatory | String            | Field name, row object key |
-| label          | Optional  | String            | Header label, default is field name |
-| type           | Optional  | String            | The column type |
-| readonly       | Optional  | Boolean           | Read-only, default is parent prop: readonly |
-| init-style     | Optional  | Object            | Cell inital style in css |
-| sticky         | Optional  | Boolean           | Fixed column at left of the table, no response on horizontal scrolling |
-| invisible      | Optional  | Boolean           | Column visibility, default is false |
-| width          | Optional  | String            | Specified column width, default is '100px' |
-| autoFillWidth  | Optional  | Boolean           | Extend the width of this column to fill the editor width, default is false |
-| change         | Optional  | Function@         | The function to be triggered when the data of this column changed |
-| validate       | Optional  | Function          | The function to validate and return the error message |
-| key-field      | Optional  | Boolean           | Specified the key field which is included in keys parameter in @update event |
-| allow-keys     | Optional  | Array, Function   | Array of char which allow to input |
-| mandatory      | Optional  | String            | If not empty, it is showed as error when it modified as blank, default is '' |
-| length-limit   | Optional  | Number            | Not allow to input when the content length reaches the limit |
-| autocomplete   | Optional  | Boolean           | Allow autocomplete popup when editing, default is parent prop: autocomplete |
-| pos            | Optional  | Number            | Specified column sequence |
-| text-transform | Optional  | String            | Force the input to upppercase or lowercase when editing |
-| text-align     | Optional  | String            | Text alignment, default is 'left' |
-| options        | Optional  | Array, Function@  | For type = 'select', define the selectable options in array |
-| options        | Optional  | Object, Function  | For type = 'map', define the selectable options in hash |
-| summary        | Optional  | String            | Summary: 'sum', 'avg', 'max', 'min'. Default is null |
-| sort           | Optional  | Function          | The custom function for sorting the column |
-| link           | Optional  | Function          | The function to react to the alt-click on cell text |
-| is-link        | Optional  | Function          | The function to identify it is a link |
-| to-text        | Optional  | Function          | The function to convert from object value to edit-text |
-| to-value       | Optional  | Function          | The function to convert from edit-text to object value |
-| placeholder    | Optional  | String            | The custom text if the field is null |
-| no-sorting     | Optional  | Boolean           | Disable the sorting of the column |
+| Name           | Mandatory | Type             | Description                                                                  |
+| :------------- | :-------- | :--------------- | :--------------------------------------------------------------------------- |
+| field          | Mandatory | String           | Field name, row object key                                                   |
+| label          | Optional  | String           | Header label, default is field name                                          |
+| type           | Optional  | String           | The column type                                                              |
+| readonly       | Optional  | Boolean          | Read-only, default is parent prop: readonly                                  |
+| init-style     | Optional  | Object           | Cell inital style in css                                                     |
+| sticky         | Optional  | Boolean          | Fixed column at left of the table, no response on horizontal scrolling       |
+| invisible      | Optional  | Boolean          | Column visibility, default is false                                          |
+| width          | Optional  | String           | Specified column width, default is '100px'                                   |
+| autoFillWidth  | Optional  | Boolean          | Extend the width of this column to fill the editor width, default is false   |
+| change         | Optional  | Function@        | The function to be triggered when the data of this column changed            |
+| validate       | Optional  | Function         | The function to validate and return the error message                        |
+| key-field      | Optional  | Boolean          | Specified the key field which is included in keys parameter in @update event |
+| allow-keys     | Optional  | Array, Function  | Array of char which allow to input                                           |
+| mandatory      | Optional  | String           | If not empty, it is showed as error when it modified as blank, default is '' |
+| length-limit   | Optional  | Number           | Not allow to input when the content length reaches the limit                 |
+| autocomplete   | Optional  | Boolean          | Allow autocomplete popup when editing, default is parent prop: autocomplete  |
+| pos            | Optional  | Number           | Specified column sequence                                                    |
+| text-transform | Optional  | String           | Force the input to upppercase or lowercase when editing                      |
+| text-align     | Optional  | String           | Text alignment, default is 'left'                                            |
+| options        | Optional  | Array, Function@ | For type = 'select', define the selectable options in array                  |
+| options        | Optional  | Object, Function | For type = 'map', define the selectable options in hash                      |
+| summary        | Optional  | String           | Summary: 'sum', 'avg', 'max', 'min'. Default is null                         |
+| sort           | Optional  | Function         | The custom function for sorting the column                                   |
+| link           | Optional  | Function         | The function to react to the alt-click on cell text                          |
+| is-link        | Optional  | Function         | The function to identify it is a link                                        |
+| to-text        | Optional  | Function         | The function to convert from object value to edit-text                       |
+| to-value       | Optional  | Function         | The function to convert from edit-text to object value                       |
+| placeholder    | Optional  | String           | The custom text if the field is null                                         |
+| no-sorting     | Optional  | Boolean          | Disable the sorting of the column                                            |
 
 @ - Function can return a promise
 
 #### Column type
+
 | Type            | Value               | Display text        | Justify | Validation         | Allow Keys   | Allow Null |
-| :---            | :---                | :---                | :---    | :---               | :--          | :--: |
-| string          | string              | string              | left    | none               | all          | Y |
-| number          | numeric             | numeric             | right   | none               | -.0123456789 | Y |
-| select          | array               | string              | left    | value with options | all          | Y |
-| map             | hash                | string              | left    | value with options | all          | Y |
-| check10         | 1 or 0              | 1 or 0              | center  | none               | 1 or 0       | Y |
-| checkYN         | Y or N              | Y or N              | center  | none               | ynYN         | Y |
-| checkTF         | T or F              | T of F              | center  | none               | tfTF         | Y |
-| date            | yyyy-mm-dd          | yyyy-mm-dd          | left    | valid date         | none         | Y |
-| datetime        | yyyy-mm-dd hh:mn    | yyyy-mm-dd hh:mn    | left    | valid datetime     | none         | Y |
-| datetimesec     | yyyy-mm-dd hh:mn:ss | yyyy-mm-dd hh:mn:ss | left    | valid datetimesec  | none         | Y |
-| datetick        | unix timestamp      | yyyy-mm-dd          | left    | valid date         | none         | Y |
-| datetimetick    | unix timestamp      | yyyy-mm-dd hh:mn    | left    | valid datetime     | none         | Y |
-| datetimesectick | unix timestamp      | yyyy-mm-dd hh:mn:ss | left    | valid datetimesec  | none         | Y |
-| action          | string              | null                | center  | none               | none         | Y |
+| :-------------- | :------------------ | :------------------ | :------ | :----------------- | :----------- | :--------: |
+| string          | string              | string              | left    | none               | all          |     Y      |
+| number          | numeric             | numeric             | right   | none               | -.0123456789 |     Y      |
+| select          | array               | string              | left    | value with options | all          |     Y      |
+| map             | hash                | string              | left    | value with options | all          |     Y      |
+| check10         | 1 or 0              | 1 or 0              | center  | none               | 1 or 0       |     Y      |
+| checkYN         | Y or N              | Y or N              | center  | none               | ynYN         |     Y      |
+| checkTF         | T or F              | T of F              | center  | none               | tfTF         |     Y      |
+| date            | yyyy-mm-dd          | yyyy-mm-dd          | left    | valid date         | none         |     Y      |
+| datetime        | yyyy-mm-dd hh:mn    | yyyy-mm-dd hh:mn    | left    | valid datetime     | none         |     Y      |
+| datetimesec     | yyyy-mm-dd hh:mn:ss | yyyy-mm-dd hh:mn:ss | left    | valid datetimesec  | none         |     Y      |
+| datetick        | unix timestamp      | yyyy-mm-dd          | left    | valid date         | none         |     Y      |
+| datetimetick    | unix timestamp      | yyyy-mm-dd hh:mn    | left    | valid datetime     | none         |     Y      |
+| datetimesectick | unix timestamp      | yyyy-mm-dd hh:mn:ss | left    | valid datetimesec  | none         |     Y      |
+| action          | string              | null                | center  | none               | none         |     Y      |
 
 ## Hot Key List
 
-| Name        | Condition   | Description |
-| :---        | :---        | :---        |
-| Ctrl/Meta A | Table Focus | Select all rows |
-| Ctrl/Meta C | Cell Focus  | Select the cell text to clipboard |
-| Ctrl/Meta V | Cell Focus  | Place the clipboard text to cell |
-| Ctrl/Meta Z | Table Focus | Undo the last update |
-| Ctrl/Meta F | Table Focus | Popup the "Find" dialog |
-| Ctrl/Meta G | After Find  | Continue to find the text |
+| Name        | Condition   | Description                                                                   |
+| :---------- | :---------- | :---------------------------------------------------------------------------- |
+| Ctrl/Meta A | Table Focus | Select all rows                                                               |
+| Ctrl/Meta C | Cell Focus  | Select the cell text to clipboard                                             |
+| Ctrl/Meta V | Cell Focus  | Place the clipboard text to cell                                              |
+| Ctrl/Meta Z | Table Focus | Undo the last update                                                          |
+| Ctrl/Meta F | Table Focus | Popup the "Find" dialog                                                       |
+| Ctrl/Meta G | After Find  | Continue to find the text                                                     |
 | Ctrl/Meta L | Cell Focus  | Force to show autocomplete list, or the option list for "select" typed column |
 
 ## Events List
 
 ### Event Component: vue-excel-editor
 
-| Name           | Arguemnts                   | Description |
-| :---           | :---                        | :---        |
-| update         | updateItemArray             | Update cell information |
-| delete         | deleteItemArray             | Delete row information |
-| select         | selectIdArray, direction    | Emit when rows are selected/unselected |
-| cell-click     | rowPos, colPos              | Emit when a cell be clicked before focus |
-| cell-focus     | {rowPos, colPos, cell, rec} | Emit when a cell got focus |
-| cell-blur      | {rowPos, colPos, cell, rec} | Emit when a cell got blur |
-| page-changed   | pageTopPos, pageBottomPos   | Emit when the page has changed |
+| Name           | Arguemnts                   | Description                                                  |
+| :------------- | :-------------------------- | :----------------------------------------------------------- |
+| update         | updateItemArray             | Update cell information                                      |
+| delete         | deleteItemArray             | Delete row information                                       |
+| select         | selectIdArray, direction    | Emit when rows are selected/unselected                       |
+| cell-click     | rowPos, colPos              | Emit when a cell be clicked before focus                     |
+| cell-focus     | {rowPos, colPos, cell, rec} | Emit when a cell got focus                                   |
+| cell-blur      | {rowPos, colPos, cell, rec} | Emit when a cell got blur                                    |
+| page-changed   | pageTopPos, pageBottomPos   | Emit when the page has changed                               |
 | setting        | setting                     | Emit when setting (column width, invisible state) is changed |
-| validate-error | error, row, field           | Emit when validation (both field and row level) occured |
+| validate-error | error, row, field           | Emit when validation (both field and row level) occured      |
 
 ## Methods List
 
 ### Method Component: vue-excel-editor
 
-| Name                  | Arguments         | Description |
-| :---                  | :---              | :---        |
-| firstPage             |                   | Move to the first page |
-| lastPage              |                   | Move to the last page |
-| prevPage              |                   | Move to the previous page |
-| nextPage              |                   | Move to the next page |
-| moveNorth             |                   | Move the cursor cell to upper cell |
-| moveSouth             |                   | Move the cursor cell to lower cell |
-| moveWest              |                   | Move the cursor cell to previous cell |
-| moveEast              |                   | Move the cursor cell to next cell |
-| moveTo                | row, col*         | Move the cursor cell to cell(row, col) |
-| moveToNorthWest       |                   | Move the cursor cell to 1st row 1st col |
-| moveToNorthEast       |                   | Move the cursor cell to 1st row last col |
-| moveToSouthWest       |                   | Move the cursor cell to last row 1st col |
-| moveToSouthEast       |                   | Move the cursor cell to last row last col |
-| doFind                | text              | Find the specified text in whole table and locate the cursor cell |
-| doFindNext            |                   | Contnue the last find |
+| Name                  | Arguments         | Description                                                            |
+| :-------------------- | :---------------- | :--------------------------------------------------------------------- |
+| firstPage             |                   | Move to the first page                                                 |
+| lastPage              |                   | Move to the last page                                                  |
+| prevPage              |                   | Move to the previous page                                              |
+| nextPage              |                   | Move to the next page                                                  |
+| moveNorth             |                   | Move the cursor cell to upper cell                                     |
+| moveSouth             |                   | Move the cursor cell to lower cell                                     |
+| moveWest              |                   | Move the cursor cell to previous cell                                  |
+| moveEast              |                   | Move the cursor cell to next cell                                      |
+| moveTo                | row, col\*        | Move the cursor cell to cell(row, col)                                 |
+| moveToNorthWest       |                   | Move the cursor cell to 1st row 1st col                                |
+| moveToNorthEast       |                   | Move the cursor cell to 1st row last col                               |
+| moveToSouthWest       |                   | Move the cursor cell to last row 1st col                               |
+| moveToSouthEast       |                   | Move the cursor cell to last row last col                              |
+| doFind                | text              | Find the specified text in whole table and locate the cursor cell      |
+| doFindNext            |                   | Contnue the last find                                                  |
 | sort                  | n, pos            | Sort the column specified by pos, n = 1 (ascending) or -1 (descending) |
-| newRecord             | rec*              | Call this to new an empty record, return the rec pointer |
-| deleteRecord          | rowpos            | Delete the record in pos rowpos |
-| deleteSelectedRecords |                   | Delete all the selected records |
-| selectRecord          | row               | Select the row |
-| selectRecordByKeys    | keys              | Select the row by keys hash |
-| selectRecordById      | id                | Select the row by $id |
-| unSelectRecord        | row               | UnSelect the row |
-| clearAllSelected      |                   | Unselect all selected rows |
-| getSelectedRecords    |                   | Get an array of the selected row hash |
-| exportTable           | fmt*              | Export the filtered table as xlsx/csv |
-| importTable           | callback*         | Import the specified formatted xlsx |
-| undoTransaction       |                   | Undo the last update |
-| setFilter             | name, text        | Set the filter text on column name |
-| clearFilter           | name*             | Clear the filter text on column name |
-| columnSuppress        |                   | Hide the column if all values are null or empty |
-| calSummary            |                   | Calculate the summary of all columns |
-| getFieldByName        | name              | Get the field object by name |
-| getFieldByLabel       | label             | Get the field object by label |
-| setRowError           | error, row        | Set the row validation error |
-| setFieldError         | error, row, field | Set the row validation error |
+| newRecord             | rec\*             | Call this to new an empty record, return the rec pointer               |
+| deleteRecord          | rowpos            | Delete the record in pos rowpos                                        |
+| deleteSelectedRecords |                   | Delete all the selected records                                        |
+| selectRecord          | row               | Select the row                                                         |
+| selectRecordByKeys    | keys              | Select the row by keys hash                                            |
+| selectRecordById      | id                | Select the row by $id                                                  |
+| unSelectRecord        | row               | UnSelect the row                                                       |
+| clearAllSelected      |                   | Unselect all selected rows                                             |
+| getSelectedRecords    |                   | Get an array of the selected row hash                                  |
+| exportTable           | fmt\*             | Export the filtered table as xlsx/csv                                  |
+| importTable           | callback\*        | Import the specified formatted xlsx                                    |
+| undoTransaction       |                   | Undo the last update                                                   |
+| setFilter             | name, text        | Set the filter text on column name                                     |
+| clearFilter           | name\*            | Clear the filter text on column name                                   |
+| columnSuppress        |                   | Hide the column if all values are null or empty                        |
+| calSummary            |                   | Calculate the summary of all columns                                   |
+| getFieldByName        | name              | Get the field object by name                                           |
+| getFieldByLabel       | label             | Get the field object by label                                          |
+| setRowError           | error, row        | Set the row validation error                                           |
+| setFieldError         | error, row, field | Set the row validation error                                           |
 
-&#42; = optional argument
+\* = optional argument
 
 ## Variable List
 
 ### Variable Component: vue-excel-editor
 
-| Name           | Type    | Description |
-| :---           | :---    | :---        |
-| processing     | Boolean | Component is busy or not |
-| pageTop        | Number  | The top row number of the current page |
-| pageSize       | Number  | The number of rows of each page |
-| fields         | AOO     | It contains the column spec create when mount |
-| filterColumn   | Object  | Contains the current filters, developer can access the filter string via this |
-| table          | AOO     | It contains the filtered records |
+| Name           | Type    | Description                                                                         |
+| :------------- | :------ | :---------------------------------------------------------------------------------- |
+| processing     | Boolean | Component is busy or not                                                            |
+| pageTop        | Number  | The top row number of the current page                                              |
+| pageSize       | Number  | The number of rows of each page                                                     |
+| fields         | AOO     | It contains the column spec create when mount                                       |
+| filterColumn   | Object  | Contains the current filters, developer can access the filter string via this       |
+| table          | AOO     | It contains the filtered records                                                    |
 | selected       | Object  | Contains all the selected rows, the key is row number and the value is internal $id |
-| selectedCount@ | Number  | Number of rows are selected |
+| selectedCount@ | Number  | Number of rows are selected                                                         |
 | errmsg         | Object  | Contains all the validation error messages, the key is internal $id plus field name |
-| redo           | AOA     | The buffer of undo, it will be removed after undo or table changed |
+| redo           | AOA     | The buffer of undo, it will be removed after undo or table changed                  |
 
 @ - allow v-model binding
 
@@ -263,14 +295,48 @@ An example to show 5x6 table:
 
 ```html
 <template>
-    <vue-excel-editor v-model="jsondata" filter-row>
-        <vue-excel-column field="user"   label="User ID"       type="string" width="80px" />
-        <vue-excel-column field="name"   label="Name"          type="string" width="150px" />
-        <vue-excel-column field="phone"  label="Contact"       type="string" width="130px" />
-        <vue-excel-column field="gender" label="Gender"        type="select" width="50px" :options="['F','M','U']" />
-        <vue-excel-column field="age"    label="Age"           type="number" width="70px" />
-        <vue-excel-column field="birth"  label="Date Of Birth" type="date"   width="80px" />
-    </vue-excel-editor>
+  <vue-excel-editor
+    v-model="jsondata"
+    filter-row
+  >
+    <vue-excel-column
+      field="user"
+      label="User ID"
+      type="string"
+      width="80px"
+    />
+    <vue-excel-column
+      field="name"
+      label="Name"
+      type="string"
+      width="150px"
+    />
+    <vue-excel-column
+      field="phone"
+      label="Contact"
+      type="string"
+      width="130px"
+    />
+    <vue-excel-column
+      field="gender"
+      label="Gender"
+      type="select"
+      width="50px"
+      :options="['F','M','U']"
+    />
+    <vue-excel-column
+      field="age"
+      label="Age"
+      type="number"
+      width="70px"
+    />
+    <vue-excel-column
+      field="birth"
+      label="Date Of Birth"
+      type="date"
+      width="80px"
+    />
+  </vue-excel-editor>
 </template>
 ```
 
@@ -278,7 +344,10 @@ Note that the component will read the vue-excel-column when it is created. You m
 
 ```html
 <template>
-    <vue-excel-editor v-model="jsondata" filter-row />
+  <vue-excel-editor
+    v-model="jsondata"
+    filter-row
+  />
 </template>
 ```
 
@@ -286,17 +355,52 @@ The sample data contains 5 records:
 
 ```js
 export default {
-    name: 'app',
-    data: {
-        jsondata: [
-            {user: 'hc', name: 'Harry Cole',    phone: '1-415-2345678', gender: 'M', age: 25, birth: '1997-07-01'},
-            {user: 'sm', name: 'Simon Minolta', phone: '1-123-7675682', gender: 'M', age: 20, birth: '1999-11-12'},
-            {user: 'ra', name: 'Raymond Atom',  phone: '1-456-9981212', gender: 'M', age: 19, birth: '2000-06-11'},
-            {user: 'ag', name: 'Mary George',   phone: '1-556-1245684', gender: 'F', age: 22, birth: '2002-08-01'},
-            {user: 'kl', name: 'Kenny Linus',   phone: '1-891-2345685', gender: 'M', age: 29, birth: '1990-09-01'}
-        ]
-    }
-}
+  name: 'app',
+  data: {
+    jsondata: [
+      {
+        user: 'hc',
+        name: 'Harry Cole',
+        phone: '1-415-2345678',
+        gender: 'M',
+        age: 25,
+        birth: '1997-07-01',
+      },
+      {
+        user: 'sm',
+        name: 'Simon Minolta',
+        phone: '1-123-7675682',
+        gender: 'M',
+        age: 20,
+        birth: '1999-11-12',
+      },
+      {
+        user: 'ra',
+        name: 'Raymond Atom',
+        phone: '1-456-9981212',
+        gender: 'M',
+        age: 19,
+        birth: '2000-06-11',
+      },
+      {
+        user: 'ag',
+        name: 'Mary George',
+        phone: '1-556-1245684',
+        gender: 'F',
+        age: 22,
+        birth: '2002-08-01',
+      },
+      {
+        user: 'kl',
+        name: 'Kenny Linus',
+        phone: '1-891-2345685',
+        gender: 'M',
+        age: 29,
+        birth: '1990-09-01',
+      },
+    ],
+  },
+};
 ```
 
 ### Work with redis for saving
@@ -304,9 +408,19 @@ export default {
 You may capture the @delete and the @update event for saving purpose.
 
 ```html
-<vue-excel-editor v-model="jsondata" @delete="onDelete" @update="onUpdate">
-    <vue-excel-column field="user" label="User ID" type="string" width="80px" key-field />
-    ...
+<vue-excel-editor
+  v-model="jsondata"
+  @delete="onDelete"
+  @update="onUpdate"
+>
+  <vue-excel-column
+    field="user"
+    label="User ID"
+    type="string"
+    width="80px"
+    key-field
+  />
+  ...
 </vue-excel-editor>
 ```
 
@@ -330,9 +444,18 @@ methods: {
 Set the reference by ref="..."
 
 ```html
-<vue-excel-editor ref="grid" v-model="jsondata">
-    <vue-excel-column field="user" label="User ID" type="string" width="80px" key-field />
-    ...
+<vue-excel-editor
+  ref="grid"
+  v-model="jsondata"
+>
+  <vue-excel-column
+    field="user"
+    label="User ID"
+    type="string"
+    width="80px"
+    key-field
+  />
+  ...
 </vue-excel-editor>
 ```
 
@@ -373,9 +496,12 @@ The grid setting such as column width and column label can be saved in the local
 
 ```html
 <template>
-    <vue-excel-editor v-model="jsondata" remember>
+  <vue-excel-editor
+    v-model="jsondata"
+    remember
+  >
     ...
-    </vue-excel-editor>
+  </vue-excel-editor>
 </template>
 ```
 
@@ -386,11 +512,11 @@ You may also capture the @setting event to handle more specifics.
 You may specify the column label in vue-excel-column label prop. However, it will persist after mounted. If you want to change the column label after mounted, you may try to update the variable fields. For example
 
 ```js
-    this.$refs.grid.fields.forEach((field) => {
-        if (field.name === 'col23') field.label = 'Product'
-        if (field.label === '') field.label = '(' + field.name + ')'
-    })
-    this.$forceUpdate()  // remember to call vue update to reflesh the display
+this.$refs.grid.fields.forEach((field) => {
+  if (field.name === 'col23') field.label = 'Product';
+  if (field.label === '') field.label = '(' + field.name + ')';
+});
+this.$forceUpdate(); // remember to call vue update to reflesh the display
 ```
 
 ### Change the column invisibility
@@ -398,10 +524,10 @@ You may specify the column label in vue-excel-column label prop. However, it wil
 Same as column label, you may make the column visible/invisible in vue-excel-column label prop. However, it will persist after mounted. If you want to change it after mounted, you may try to update the variable fields. For example
 
 ```js
-    this.$refs.grid.fields.forEach((field) => {
-        if (field.name === 'col23') field.invisible = false
-    })
-    this.$forceUpdate()  // remember to call vue update to reflesh the display
+this.$refs.grid.fields.forEach((field) => {
+  if (field.name === 'col23') field.invisible = false;
+});
+this.$forceUpdate(); // remember to call vue update to reflesh the display
 ```
 
 ### Export the content
@@ -410,11 +536,14 @@ The following provides the button to export the grid content.
 
 ```html
 <template>
-    <button @click="exportAsExcel"> Export Excel </button>
-    <button @click="exportAsCsv"> Export CSV </button>
-    <vue-excel-editor ref="grid" ...>
-        ...
-    </vue-excel-editor>
+  <button @click="exportAsExcel">Export Excel</button>
+  <button @click="exportAsCsv">Export CSV</button>
+  <vue-excel-editor
+    ref="grid"
+    ...
+  >
+    ...
+  </vue-excel-editor>
 </template>
 ```
 
@@ -443,9 +572,12 @@ The selected or unselected rows will be passed to the provided trigger method
 
 ```html
 <template>
-    <vue-excel-editor v-model="jsondata" @select="onSelect">
+  <vue-excel-editor
+    v-model="jsondata"
+    @select="onSelect"
+  >
     ...
-    </vue-excel-editor>
+  </vue-excel-editor>
 </template>
 ```
 
@@ -460,13 +592,11 @@ methods: {
 You may also want to watch the selected records count for displaying the action buttons. For example:
 
 ```html
-<vue-excel-editor v-model:selected-count="count">
-...
-</vue-excel-editor>
+<vue-excel-editor v-model:selected-count="count"> ... </vue-excel-editor>
 
-<button v-show="showDeleteAction"> Delete </button>
-<button v-show="showSendEmailInvitationAction"> Invite </button>
-<button v-show="showSendBirthdayGreetingAction"> Greeting </button>
+<button v-show="showDeleteAction">Delete</button>
+<button v-show="showSendEmailInvitationAction">Invite</button>
+<button v-show="showSendBirthdayGreetingAction">Greeting</button>
 ```
 
 ```js
@@ -497,9 +627,27 @@ computed: {
 You could achieve this by placing the method in change prop
 
 ```html
-<vue-excel-column field="name" label="Name" type="string" width="150px" :change="onBeforeNameChange" />
-<vue-excel-column field="phone" label="Contact" type="string" width="130px" :change="onBeforePhoneChange" />
-<vue-excel-column field="birth" label="Date Of Birth" type="date" width="80px" :change="onBeforeBirthChange" />
+<vue-excel-column
+  field="name"
+  label="Name"
+  type="string"
+  width="150px"
+  :change="onBeforeNameChange"
+/>
+<vue-excel-column
+  field="phone"
+  label="Contact"
+  type="string"
+  width="130px"
+  :change="onBeforePhoneChange"
+/>
+<vue-excel-column
+  field="birth"
+  label="Date Of Birth"
+  type="date"
+  width="80px"
+  :change="onBeforeBirthChange"
+/>
 ```
 
 ```js
@@ -521,7 +669,13 @@ methods: {
 The change function can return a promise.
 
 ```html
-<vue-excel-column field="phone" label="Contact" type="string" width="130px" :change="onBeforePhoneChange" />
+<vue-excel-column
+  field="phone"
+  label="Contact"
+  type="string"
+  width="130px"
+  :change="onBeforePhoneChange"
+/>
 ```
 
 ```js
@@ -547,14 +701,52 @@ However, the promise routine may cause your web page has low performance. I sugg
 
 ```html
 <template>
-    <vue-excel-editor v-model="jsondata" no-paging autocomplete filter-row>
-        <vue-excel-column field="user"   label="User ID"       type="string" width="80px" key-field />
-        <vue-excel-column field="name"   label="Name"          type="string" width="150px" />
-        <vue-excel-column field="phone"  label="Contact"       type="string" width="130px" :validate="validPhoneNum" />
-        <vue-excel-column field="gender" label="Gender"        type="select" width="50px"  :options="['F','M','U']" />
-        <vue-excel-column field="age"    label="Age"           type="number" width="70px" />
-        <vue-excel-column field="birth"  label="Date Of Birth" type="date"   width="80px" />
-    </vue-excel-editor>
+  <vue-excel-editor
+    v-model="jsondata"
+    no-paging
+    autocomplete
+    filter-row
+  >
+    <vue-excel-column
+      field="user"
+      label="User ID"
+      type="string"
+      width="80px"
+      key-field
+    />
+    <vue-excel-column
+      field="name"
+      label="Name"
+      type="string"
+      width="150px"
+    />
+    <vue-excel-column
+      field="phone"
+      label="Contact"
+      type="string"
+      width="130px"
+      :validate="validPhoneNum"
+    />
+    <vue-excel-column
+      field="gender"
+      label="Gender"
+      type="select"
+      width="50px"
+      :options="['F','M','U']"
+    />
+    <vue-excel-column
+      field="age"
+      label="Age"
+      type="number"
+      width="70px"
+    />
+    <vue-excel-column
+      field="birth"
+      label="Date Of Birth"
+      type="date"
+      width="80px"
+    />
+  </vue-excel-editor>
 </template>
 ```
 
@@ -563,52 +755,65 @@ However, the promise routine may cause your web page has low performance. I sugg
 Specified filter-row prop to show filter row
 
 ```html
-<vue-excel-editor v-model="jsondata" filter-row>
+<vue-excel-editor
+  v-model="jsondata"
+  filter-row
+></vue-excel-editor>
 ```
 
 If you don't want to show the footer, specified the no-footer prop
 
 ```html
-<vue-excel-editor v-model="jsondata" no-footer filter-row>
+<vue-excel-editor
+  v-model="jsondata"
+  no-footer
+  filter-row
+></vue-excel-editor>
 ```
 
-![Filter + Footer Rows](https://i.imgur.com/7xmbrnM.png "Filter + Footer Rows")
+![Filter + Footer Rows](https://i.imgur.com/7xmbrnM.png 'Filter + Footer Rows')
 
 #### Filtering
 
 The filtering is one of the focusing features. It supports regular expression and windows wild card syntax.
 
-![Filtering](https://i.imgur.com/spjZN3M.png "Filtering")
+![Filtering](https://i.imgur.com/spjZN3M.png 'Filtering')
 
-Component supports the prefx likes <, >, =, >=, <=, <>, ~ (regular expression) and wild-card * and ? symbol. Examples:
-| Example           | Description |
-| :---              | :---        |
-| abc               | The values contain ABC |
-| abc*              | The values start by ABC |
-| *abc              | The values end by ABC |
-| =abc              | The values equal to ABC |
-| <>abc             | The values do not equal to ABC |
-| >= 100            | The values are greater or equal to 100 |
-| < 0               | The values are smaller than 0 |
-| po-18*5??         | The values start from PO-18 and the 3rd-last char is 5 |
-| =                 | The values are empty |
-| ~.                | The values are not empty |
-| ~.*tpx[ ]+ck      | The values have TPX and CK text and they have spaces in between |
-| ~[ ]              | The values contain space |
-| ~^so&#124;ary$    | The values start by SO or end by ARY |
+Component supports the prefx likes <, >, =, >=, <=, <>, ~ (regular expression) and wild-card _ and ? symbol. Examples:
+| Example | Description |
+| :--- | :--- |
+| abc | The values contain ABC |
+| abc_ | The values start by ABC |
+| *abc | The values end by ABC |
+| =abc | The values equal to ABC |
+| <>abc | The values do not equal to ABC |
+| >= 100 | The values are greater or equal to 100 |
+| < 0 | The values are smaller than 0 |
+| po-18*5?? | The values start from PO-18 and the 3rd-last char is 5 |
+| = | The values are empty |
+| ~. | The values are not empty |
+| ~._tpx[ ]+ck | The values have TPX and CK text and they have spaces in between |
+| ~[ ] | The values contain space |
+| ~^so&#124;ary$ | The values start by SO or end by ARY |
 | ~[ ]+$&#124;^[ ]+ | The values start or end by spaces |
-| ~^[^ ]*$          | The values have no space |
+| ~^[^ ]_$ | The values have no space |
 
 Note that all filters are case-insensitive.
 
 #### Sorting
 
-![Sorting](https://i.imgur.com/vGZpHkv.png "Sorting")
+![Sorting](https://i.imgur.com/vGZpHkv.png 'Sorting')
 
 It is possible to assign custom sorting function for specified column:
 
 ```html
-<vue-excel-column field="birth" label="Date Of Birth" type="date" width="80px" :sort="sortingBirth" />
+<vue-excel-column
+  field="birth"
+  label="Date Of Birth"
+  type="date"
+  width="80px"
+  :sort="sortingBirth"
+/>
 ```
 
 ```js
@@ -624,16 +829,22 @@ methods: {
 #### Autocomplete
 
 When user enters text in cell and holds a second, component will show 10 matched occurences for user to choose.
-![Autocomplete](https://i.imgur.com/cUSUaUL.png "Autocomplete")
+![Autocomplete](https://i.imgur.com/cUSUaUL.png 'Autocomplete')
 
 #### Options
 
 ```html
-<vue-excel-column field="gender" label="Gender" type="select" width="50px" :options="['F','M','U']" />
+<vue-excel-column
+  field="gender"
+  label="Gender"
+  type="select"
+  width="50px"
+  :options="['F','M','U']"
+/>
 ```
 
 Specified the type = "select" for Options column. This works like Autocomplete, but the list is provided and fixed.
-![Options](https://i.imgur.com/LGefJif.png "Options")
+![Options](https://i.imgur.com/LGefJif.png 'Options')
 
 #### Map
 
@@ -641,28 +852,40 @@ The "map" typed column is the same as "select" typed column, but the record valu
 The options prop required to provide the mapping of the value and text.
 
 ```html
-<vue-excel-column field="gender" label="Gender" type="map" width="50px" :options="{M:'Male','F':'Female','U':'Unknown'}" />
+<vue-excel-column
+  field="gender"
+  label="Gender"
+  type="map"
+  width="50px"
+  :options="{M:'Male','F':'Female','U':'Unknown'}"
+/>
 ```
 
-![Map](https://i.imgur.com/rEoglm5.png "Map")
-
+![Map](https://i.imgur.com/rEoglm5.png 'Map')
 
 #### Select
 
 Click the row label to select the row. The component supports Excel-style which using Shift-click and Ctrl-click (Meta for OSX) combination to select multiple rows. You may also interested in the free-select prop to select the multiple rows without holding the shift key.
 
-![Select](https://i.imgur.com/x0Lkwf8.png "Select")
+![Select](https://i.imgur.com/x0Lkwf8.png 'Select')
 
 #### Multi-Update
 
 When the user updates any cell during select multiple rows, all cells of the same column of those selected rows will be updated.
 
-![Multi-Update](https://i.imgur.com/iFSPxDQ.png "Multi-Update")
+![Multi-Update](https://i.imgur.com/iFSPxDQ.png 'Multi-Update')
 
 #### Sticky column
 
 ```html
-<vue-excel-column field="user" label="User ID" type="string" width="80px" key-field sticky />
+<vue-excel-column
+  field="user"
+  label="User ID"
+  type="string"
+  width="80px"
+  key-field
+  sticky
+/>
 ```
 
 Specified "sticky" means the specified column is frozen when horizontal scrolling. Most likely sticky columns are leftmost.
@@ -670,8 +893,12 @@ Specified "sticky" means the specified column is frozen when horizontal scrollin
 #### Paging
 
 ```html
-<vue-excel-editor v-model="jsondata" autocomplete filter-row>
-...
+<vue-excel-editor
+  v-model="jsondata"
+  autocomplete
+  filter-row
+>
+  ...
 </vue-excel-editor>
 ```
 
@@ -682,7 +909,13 @@ To gain better performance, I suggest you use paging by not specify "no-paging" 
 The following is for column validation.
 
 ```html
-<vue-excel-column field="phone" label="Contact" type="string" width="130px" :validate="validPhoneNum" />
+<vue-excel-column
+  field="phone"
+  label="Contact"
+  type="string"
+  width="130px"
+  :validate="validPhoneNum"
+/>
 ```
 
 ```js
@@ -695,12 +928,12 @@ methods: {
 }
 ```
 
-![Validation](https://i.imgur.com/VV6RQYw.png "Validation")
+![Validation](https://i.imgur.com/VV6RQYw.png 'Validation')
 
 The following is for row validation. It will be triggered for any changes. The error message will be shown at number column.
 
 ```html
-<vue-excel-editor :validate="validWholeRecord">
+<vue-excel-editor :validate="validWholeRecord"></vue-excel-editor>
 ```
 
 ```js
@@ -715,7 +948,7 @@ methods: {
 You may want to receive the validation error. Component will emit an event "validation-error" if row or field validation error changed.
 
 ```html
-<vue-excel-editor @validate-error="logValidationError">
+<vue-excel-editor @validate-error="logValidationError"></vue-excel-editor>
 ```
 
 ```js
@@ -730,19 +963,25 @@ methods: {
 ### Summary
 
 ```html
-<vue-excel-column field="age" label="Age" type="number" width="70px" summary="sum" />
+<vue-excel-column
+  field="age"
+  label="Age"
+  type="number"
+  width="70px"
+  summary="sum"
+/>
 ```
 
-![Summary](https://i.imgur.com/tlZjilA.png "Summary")
+![Summary](https://i.imgur.com/tlZjilA.png 'Summary')
 
-Summary prop supports "sum", "min", "max", "avg" and "count".  
-  
+Summary prop supports "sum", "min", "max", "avg" and "count".
+
 Note that "count" will instruct the component to count the cell which hold the following condition  
 Number: >0  
 String: non-empty  
 Check: "Y", "1" or "T"  
-DateTime: at or later than the current time  
-  
+DateTime: at or later than the current time
+
 Use this with care. The summary calculation eats resource, so it only calculates when the number of records changed (i.e. New, delete, filter). It does not recalculate if user changes the cell content. You may trigger the calculation manually by calling calSummary method in the @update event.
 
 ### Link
@@ -750,7 +989,14 @@ Use this with care. The summary calculation eats resource, so it only calculates
 This is a nice feature in enterprise applications. Actually, I was learning from SAP UI. When the user holds the function key (Alt-key here) and move the mouse over the cell content, the text will show as a link. If user clicks on the link, your custom function will be triggered. The following example shows how to route to the user profile page by clicking on the name column cell.
 
 ```html
-<vue-excel-column field="name" label="Name" type="string" width="150px" :link="routeToUserFunc" :is-link="showLinkOrString" />
+<vue-excel-column
+  field="name"
+  label="Name"
+  type="string"
+  width="150px"
+  :link="routeToUserFunc"
+  :is-link="showLinkOrString"
+/>
 ```
 
 ```js
@@ -772,7 +1018,14 @@ All links will be set as readonly by default.
 Sometimes displaying text and the store value will be different. In order to deal with this, you could use column properties to-text and to-value.
 
 ```html
-<vue-excel-column field="phone" label="Contact" type="string" width="130px" :to-text="phoneToText" :to-value="phoneToVal" />
+<vue-excel-column
+  field="phone"
+  label="Contact"
+  type="string"
+  width="130px"
+  :to-text="phoneToText"
+  :to-value="phoneToVal"
+/>
 ```
 
 ```js
@@ -793,7 +1046,13 @@ methods: {
 Sometimes we want to display the text in badge style.
 
 ```html
-<vue-excel-column field="user" label="User ID" type="badge" width="80px" :bg-color="badgeColor" />
+<vue-excel-column
+  field="user"
+  label="User ID"
+  type="badge"
+  width="80px"
+  :bg-color="badgeColor"
+/>
 ```
 
 ```js
@@ -811,7 +1070,15 @@ All badge will be set as readonly by default.
 Sometimes we want to display the list of actions for record processing, such as Edit/Remove.
 
 ```html
-<vue-excel-column field="do" label="Action" type="action" :options="['Edit', 'Remove']" width="100px" :change="doAction" placeholder="Action" />
+<vue-excel-column
+  field="do"
+  label="Action"
+  type="action"
+  :options="['Edit', 'Remove']"
+  width="100px"
+  :change="doAction"
+  placeholder="Action"
+/>
 ```
 
 ```js
@@ -833,7 +1100,12 @@ If you want to show a static text in cell, you could use placeholder prop.
 For password editing:
 
 ```html
-<vue-excel-column type="password" field="pwd" label="Password" width="90px" />
+<vue-excel-column
+  type="password"
+  field="pwd"
+  label="Password"
+  width="90px"
+/>
 ```
 
 ### Hide Duplication
@@ -842,19 +1114,72 @@ If a column set to hide-duplicaiton, the component will compare the cell content
 to transparent color and remove the border-top. It also affects the next column which also set to hide-duplication. Here is an example:
 
 ```html
-  <vue-excel-editor v-model="jsondata" filter-row>
-    <vue-excel-column type="map"      field="gender" width="80px"  label="Gender" :options="{M: 'Male', F: 'Female'}" hide-duplicate />
-    <vue-excel-column type="number"   field="age"    width="60px"  label="Age" summary="avg" hide-duplicate />
-    <vue-excel-column type="badge"    field="user"   width="75px"  label="User" :bgcolor="badgeColor" />
-    <vue-excel-column type="string"   field="name"   width="150px" label="Name" :link="linkClick" :is-link="isLink" />
-    <vue-excel-column type="string"   field="phone"  width="160px" label="Contact" />
-    <vue-excel-column type="password" field="pwd"    width="90px"  label="Password" />
-    <vue-excel-column type="date"     field="birth"  width="115px" label="Date Of Birth" />
-    <vue-excel-column type="action"   field="action" width="75px"  label="#" :options="['Edit', 'Remove']" :change="doAction" placeholder="Action" />
-  </vue-excel-editor>
+<vue-excel-editor
+  v-model="jsondata"
+  filter-row
+>
+  <vue-excel-column
+    type="map"
+    field="gender"
+    width="80px"
+    label="Gender"
+    :options="{M: 'Male', F: 'Female'}"
+    hide-duplicate
+  />
+  <vue-excel-column
+    type="number"
+    field="age"
+    width="60px"
+    label="Age"
+    summary="avg"
+    hide-duplicate
+  />
+  <vue-excel-column
+    type="badge"
+    field="user"
+    width="75px"
+    label="User"
+    :bgcolor="badgeColor"
+  />
+  <vue-excel-column
+    type="string"
+    field="name"
+    width="150px"
+    label="Name"
+    :link="linkClick"
+    :is-link="isLink"
+  />
+  <vue-excel-column
+    type="string"
+    field="phone"
+    width="160px"
+    label="Contact"
+  />
+  <vue-excel-column
+    type="password"
+    field="pwd"
+    width="90px"
+    label="Password"
+  />
+  <vue-excel-column
+    type="date"
+    field="birth"
+    width="115px"
+    label="Date Of Birth"
+  />
+  <vue-excel-column
+    type="action"
+    field="action"
+    width="75px"
+    label="#"
+    :options="['Edit', 'Remove']"
+    :change="doAction"
+    placeholder="Action"
+  />
+</vue-excel-editor>
 ```
 
-![Hide Duplication](https://i.imgur.com/HCFyEEp.png "Hide Duplication")
+![Hide Duplication](https://i.imgur.com/HCFyEEp.png 'Hide Duplication')
 
 All field set to hide duplication will be set as readonly by default.
 
@@ -865,18 +1190,87 @@ based on the cell value. For example, we want to group the gender by M and F and
 of each group. If this is the case, you could use grouping attribute. For example:
 
 ```html
-  <vue-excel-editor ref="editor" v-if="!hide" v-model="jsondata" filter-row v-model:selected-count="count">
-    <vue-excel-column type="string"   field="region" width="80px"  label="Group1" grouping="collapse" />
-    <vue-excel-column type="string"   field="area"   width="80px"  label="Group2" grouping="collapse" />
-    <vue-excel-column type="map"      field="gender" width="80px"  label="Gender" :options="{M: 'Male', F: 'Female'}" :change="genderChange" />
-    <vue-excel-column type="number"   field="age"    width="60px"  label="Age" :validate="validateAge" summary="avg" />
-    <vue-excel-column type="badge"    field="user"   width="75px"  label="User" :bgcolor="badgeColor" />
-    <vue-excel-column type="string"   field="name"   width="150px" label="Name" :link="linkClick" :isLink="isLink" />
-    <vue-excel-column type="string"   field="phone"  width="160px" label="Contact" :to-text="toTextPasswd"/>
-    <vue-excel-column type="password" field="pwd"    width="90px"  label="Password" />
-    <vue-excel-column type="date"     field="birth"  width="115px" label="Date Of Birth" />
-    <vue-excel-column type="action"   field="action" width="75px"  label="#" :options="['Edit', 'Remove']" :change="doAction" placeholder="Action" />
-  </vue-excel-editor>
+<vue-excel-editor
+  ref="editor"
+  v-if="!hide"
+  v-model="jsondata"
+  filter-row
+  v-model:selected-count="count"
+>
+  <vue-excel-column
+    type="string"
+    field="region"
+    width="80px"
+    label="Group1"
+    grouping="collapse"
+  />
+  <vue-excel-column
+    type="string"
+    field="area"
+    width="80px"
+    label="Group2"
+    grouping="collapse"
+  />
+  <vue-excel-column
+    type="map"
+    field="gender"
+    width="80px"
+    label="Gender"
+    :options="{M: 'Male', F: 'Female'}"
+    :change="genderChange"
+  />
+  <vue-excel-column
+    type="number"
+    field="age"
+    width="60px"
+    label="Age"
+    :validate="validateAge"
+    summary="avg"
+  />
+  <vue-excel-column
+    type="badge"
+    field="user"
+    width="75px"
+    label="User"
+    :bgcolor="badgeColor"
+  />
+  <vue-excel-column
+    type="string"
+    field="name"
+    width="150px"
+    label="Name"
+    :link="linkClick"
+    :isLink="isLink"
+  />
+  <vue-excel-column
+    type="string"
+    field="phone"
+    width="160px"
+    label="Contact"
+    :to-text="toTextPasswd"
+  />
+  <vue-excel-column
+    type="password"
+    field="pwd"
+    width="90px"
+    label="Password"
+  />
+  <vue-excel-column
+    type="date"
+    field="birth"
+    width="115px"
+    label="Date Of Birth"
+  />
+  <vue-excel-column
+    type="action"
+    field="action"
+    width="75px"
+    label="#"
+    :options="['Edit', 'Remove']"
+    :change="doAction"
+    placeholder="Action"
+  />
+</vue-excel-editor>
 ```
 
 ```js
@@ -891,7 +1285,7 @@ of each group. If this is the case, you could use grouping attribute. For exampl
 
 The above shows the way in specifying 2 groups (region + area). Both group set to collapse by default.
 
-![Grouping](https://i.imgur.com/g5XnsbF.png "Grouping")
+![Grouping](https://i.imgur.com/g5XnsbF.png 'Grouping')
 
 All field set to be grouping will be set as readonly and hide duplication by default.
 
@@ -901,53 +1295,58 @@ The developer may override the default values through localized-label prop.
 
 ```html
 <template>
-    <vue-excel-editor v-model="jsondata" :localized-label="myLabels">
+  <vue-excel-editor
+    v-model="jsondata"
+    :localized-label="myLabels"
+  >
     ...
-    </vue-excel-editor>
+  </vue-excel-editor>
 </template>
 ```
 
 ```js
 data: {
-    myLabels = {
-        footerLeft: (top, bottom, total) => `Record ${top} to ${bottom} of ${total}`,
-        first: 'First',
-        previous: 'Previous',
-        next: 'Next',
-        last: 'Last',
-        footerRight: {
-            selected: 'Selected:',
-            filtered: 'Filtered:',
-            loaded: 'Loaded:'
-        },
-        processing: 'Processing',
-        tableSetting: 'Table Setting',
-        exportExcel: 'Export Excel',
-        importExcel: 'Import Excel',
-        back: 'Back',
-        reset: 'Default',
-        sortingAndFiltering: 'Sorting And Filtering',
-        sortAscending: 'Sort Ascending',
-        sortDescending: 'Sort Descending',
-        near: '≒ Near',
-        exactMatch: '= Exact Match',
-        notMatch: '≠ Not Match',
-        greaterThan: '&gt; Greater Than',
-        greaterThanOrEqualTo: '≥ Greater Than or Equal To',
-        lessThan: '&lt; Less Than',
-        lessThanOrEqualTo: '≤ Less Than Or Equal To',
-        regularExpression: '~ Regular Expression',
-        customFilter: 'Custom Filter',
-        listFirstNValuesOnly: n => `List first ${n} values only`,
-        apply: 'Apply',
-        noRecordIsRead: 'No record is read',
-        readonlyColumnDetected: 'Readonly column detected',
-        columnHasValidationError: (name, err) => `Column ${name} has validation error: ${err}`,
-        noMatchedColumnName: 'No matched column name',
-        invalidInputValue: 'Invalid input value',
-        missingKeyColumn: 'Missing key column',
-        noRecordIndicator: 'No record'
-    }
+  myLabels = {
+    footerLeft: (top, bottom, total) =>
+      `Record ${top} to ${bottom} of ${total}`,
+    first: 'First',
+    previous: 'Previous',
+    next: 'Next',
+    last: 'Last',
+    footerRight: {
+      selected: 'Selected:',
+      filtered: 'Filtered:',
+      loaded: 'Loaded:',
+    },
+    processing: 'Processing',
+    tableSetting: 'Table Setting',
+    exportExcel: 'Export Excel',
+    importExcel: 'Import Excel',
+    back: 'Back',
+    reset: 'Default',
+    sortingAndFiltering: 'Sorting And Filtering',
+    sortAscending: 'Sort Ascending',
+    sortDescending: 'Sort Descending',
+    near: '≒ Near',
+    exactMatch: '= Exact Match',
+    notMatch: '≠ Not Match',
+    greaterThan: '&gt; Greater Than',
+    greaterThanOrEqualTo: '≥ Greater Than or Equal To',
+    lessThan: '&lt; Less Than',
+    lessThanOrEqualTo: '≤ Less Than Or Equal To',
+    regularExpression: '~ Regular Expression',
+    customFilter: 'Custom Filter',
+    listFirstNValuesOnly: (n) => `List first ${n} values only`,
+    apply: 'Apply',
+    noRecordIsRead: 'No record is read',
+    readonlyColumnDetected: 'Readonly column detected',
+    columnHasValidationError: (name, err) =>
+      `Column ${name} has validation error: ${err}`,
+    noMatchedColumnName: 'No matched column name',
+    invalidInputValue: 'Invalid input value',
+    missingKeyColumn: 'Missing key column',
+    noRecordIndicator: 'No record',
+  };
 }
 ```
 
@@ -955,47 +1354,198 @@ This is for Chinese user
 
 ```js
 data: {
-    myLabels = {
-        footerLeft: (top, bottom) => `纪录 ${top} 至 ${bottom}`,
-        first: '头页',
-        previous: '上一页',
-        next: '下一页',
-        last: '尾页',
-        footerRight: {
-          selected: '选择：',
-          filtered: '过滤：',
-          loaded: '载入：'
-        },
-        processing: '工作中',
-        tableSetting: '表格设定',
-        exportExcel: '汇出 Excel',
-        importExcel: '汇入 Excel',
-        back: '关',
-        reset: '预设',
-        sortingAndFiltering: '排序及过滤',
-        sortAscending: '小至大排序',
-        sortDescending: '大至小排序',
-        near: '≒ 接近',
-        exactMatch: '= 等于',
-        notMatch: '≠ 不等于',
-        greaterThan: '&gt; 大于',
-        greaterThanOrEqualTo: '≥ 大于或等于',
-        lessThan: '&lt; 少于',
-        lessThanOrEqualTo: '≤ 少于或等于',
-        regularExpression: '~ 正规表示式',
-        customFilter: '过滤内容',
-        listFirstNValuesOnly: n => `只列出 ${n} 项`,
-        apply: '应用',
-        noRecordIsRead: '没有纪录被读取',
-        readonlyColumnDetected: '不可更新唯读纪录',
-        columnHasValidationError: (name, err) => `纪录栏位 ${name} 发生核实错误: ${err}`,
-        noMatchedColumnName: '没有能配对之栏位',
-        invalidInputValue: '输入错误内容',
-        missingKeyColumn: '找不到关键栏位',
-        noRecordIndicator: '沒有纪录'
-    }
+  myLabels = {
+    footerLeft: (top, bottom) => `纪录 ${top} 至 ${bottom}`,
+    first: '头页',
+    previous: '上一页',
+    next: '下一页',
+    last: '尾页',
+    footerRight: {
+      selected: '选择：',
+      filtered: '过滤：',
+      loaded: '载入：',
+    },
+    processing: '工作中',
+    tableSetting: '表格设定',
+    exportExcel: '汇出 Excel',
+    importExcel: '汇入 Excel',
+    back: '关',
+    reset: '预设',
+    sortingAndFiltering: '排序及过滤',
+    sortAscending: '小至大排序',
+    sortDescending: '大至小排序',
+    near: '≒ 接近',
+    exactMatch: '= 等于',
+    notMatch: '≠ 不等于',
+    greaterThan: '&gt; 大于',
+    greaterThanOrEqualTo: '≥ 大于或等于',
+    lessThan: '&lt; 少于',
+    lessThanOrEqualTo: '≤ 少于或等于',
+    regularExpression: '~ 正规表示式',
+    customFilter: '过滤内容',
+    listFirstNValuesOnly: (n) => `只列出 ${n} 项`,
+    apply: '应用',
+    noRecordIsRead: '没有纪录被读取',
+    readonlyColumnDetected: '不可更新唯读纪录',
+    columnHasValidationError: (name, err) =>
+      `纪录栏位 ${name} 发生核实错误: ${err}`,
+    noMatchedColumnName: '没有能配对之栏位',
+    invalidInputValue: '输入错误内容',
+    missingKeyColumn: '找不到关键栏位',
+    noRecordIndicator: '沒有纪录',
+  };
 }
 ```
+
+## Row Auto Size Feature
+
+The Row Auto Size feature automatically adjusts row heights based on cell content, ensuring optimal content visibility without manual resizing.
+
+### Basic Usage
+
+Enable automatic row height adjustment by adding the `autoRowHeight` prop:
+
+```html
+<template>
+  <vue-excel-editor
+    v-model="tableData"
+    :autoRowHeight="true"
+  />
+</template>
+```
+
+### Configuration Options
+
+Configure the feature with minimum and maximum row height limits:
+
+```html
+<template>
+  <vue-excel-editor
+    v-model="tableData"
+    :autoRowHeight="true"
+    :minRowHeight="30"
+    :maxRowHeight="300"
+  />
+</template>
+```
+
+### Advanced Example with Rich Content
+
+```html
+<template>
+  <vue-excel-editor
+    v-model="richContentData"
+    :autoRowHeight="true"
+    :fields="fields"
+  />
+</template>
+
+<script>
+  export default {
+    data() {
+      return {
+        richContentData: [
+          {
+            title: 'Product Launch',
+            description: `
+            <h3>Product Launch Details</h3>
+            <p><strong>Launch Date:</strong> January 15, 2024</p>
+            <p><strong>Target Market:</strong> Enterprise customers</p>
+            <ul>
+              <li>Feature A: Advanced analytics</li>
+              <li>Feature B: Real-time reporting</li>
+              <li>Feature C: Custom dashboards</li>
+            </ul>
+            <p>This product launch includes comprehensive training materials and 24/7 support for the first three months.</p>
+          `,
+            status: 'In Progress',
+          },
+        ],
+        fields: [
+          { name: 'title', label: 'Title', width: '150px' },
+          {
+            name: 'description',
+            label: 'Description',
+            width: '400px',
+            format: 'html',
+          },
+          { name: 'status', label: 'Status', width: '100px' },
+        ],
+      };
+    },
+  };
+</script>
+```
+
+### Dynamic Toggling
+
+Enable or disable the feature dynamically:
+
+```html
+<template>
+  <div>
+    <button @click="autoRowHeight = !autoRowHeight">
+      {{ autoRowHeight ? 'Disable' : 'Enable' }} Auto Row Height
+    </button>
+
+    <vue-excel-editor
+      v-model="tableData"
+      :autoRowHeight="autoRowHeight"
+    />
+  </div>
+</template>
+
+<script>
+  export default {
+    data() {
+      return {
+        autoRowHeight: false,
+        tableData: [
+          {
+            name: 'Short text',
+            description:
+              'This is a very long description that spans multiple lines and should automatically adjust the row height to accommodate all the content properly.',
+          },
+          // ... more data
+        ],
+      };
+    },
+  };
+</script>
+```
+
+### Performance Considerations
+
+For optimal performance with large datasets:
+
+```html
+<template>
+  <vue-excel-editor
+    v-model="largeDataset"
+    :autoRowHeight="true"
+    :pageSize="50"  <!-- Smaller page sizes for better performance -->
+  />
+</template>
+```
+
+### Key Features
+
+✅ **Automatic height calculation** based on content
+✅ **Multi-line text support** with proper wrapping
+✅ **HTML content compatibility** for rich formatting
+✅ **Performance optimized** with caching and lazy loading
+✅ **Configurable limits** for min/max row heights
+✅ **Seamless integration** with existing features
+✅ **Dynamic toggling** capability
+
+### Browser Compatibility
+
+The feature uses modern browser APIs and works with:
+
+- Chrome/Chromium (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
 
 ## Compatibility
 
