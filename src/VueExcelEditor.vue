@@ -4078,7 +4078,6 @@ input.active:focus {
   cursor: s-resize;
   z-index: 6;
   font-weight: bold;
-  color: blue;
 }
 .systable thead th.no-sorting {
   cursor: auto;
