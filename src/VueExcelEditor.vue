@@ -324,6 +324,7 @@
               @blur="inputBoxBlur"
               @mousemove="inputBoxMouseMove"
               @mousedown="inputBoxMouseDown"
+              @input="inputBoxInput"
               trim
               autocomplete="off"
               autocorrect="off"
@@ -2078,6 +2079,12 @@ export default defineComponent({
             break;
           case 13: // Enter
             if (!this.focused) return;
+            if (e.shiftKey) {
+              // Allow default behavior for Shift+Enter to insert newline
+              // Don't prevent default, don't navigate
+              this.inputBoxChanged = true;
+              return;
+            }
             e.preventDefault();
             if (
               this.autocompleteInputs.length === 0 ||
@@ -3416,6 +3423,19 @@ export default defineComponent({
         this.showDatePickerDiv();
       }
     },
+    inputBoxInput(e) {
+      if (this.multiLine) {
+        // Dynamically adjust height based on line count
+        const lines = e.target.value.split('\n').length;
+        const calculatedHeight = Math.max(24, lines * 24);
+        this.inputSquare.style.height = calculatedHeight + 6 + 'px';
+
+        // Also update the current cell height
+        if (this.currentCell && lines > 1) {
+          this.currentCell.style.height = calculatedHeight + 'px';
+        }
+      }
+    },
     inputCellWrite(setText, colPos, recPos) {
       let field = this.currentField;
       if (typeof colPos !== 'undefined') field = this.fields[colPos];
@@ -3423,12 +3443,23 @@ export default defineComponent({
         recPos = this.pageTop + this.currentRowPos;
       if (!this.noMassUpdate && typeof this.selected[recPos] !== 'undefined')
         this.updateSelectedRows(field, setText);
-      else
-        this.updateCell(
-          recPos,
-          field,
-          field.toValue(setText, this.table[recPos], field),
-        );
+      else {
+        const value = field.toValue(setText, this.table[recPos], field);
+        this.updateCell(recPos, field, value);
+        // Adjust cell height for multi-line content
+        if (
+          this.multiLine &&
+          typeof value === 'string' &&
+          value.includes('\n')
+        ) {
+          const lines = value.split('\n').length;
+          const cellId = `id-${this.table[recPos].$id}-${field.name}`;
+          const cell = this.systable.querySelector('td#' + cellId);
+          if (cell) {
+            cell.style.height = lines * 24 + 'px';
+          }
+        }
+      }
     },
     inputBoxBlur() {
       if (!this.$refs.dpContainer) return;
