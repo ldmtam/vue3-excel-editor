@@ -693,6 +693,7 @@ export default defineComponent({
     noFindingNext: { type: Boolean, default: false },
     noSorting: { type: Boolean, default: false },
     noMassUpdate: { type: Boolean, default: false },
+    noSelectAll: { type: Boolean, default: false },
     filterRow: { type: Boolean, default: false },
     freeSelect: { type: Boolean, default: false },
     noFooter: { type: Boolean, default: false },
@@ -1977,8 +1978,10 @@ export default defineComponent({
             e.preventDefault();
             break;
           case 65: // a
-            this.toggleSelectAllRecords();
-            e.preventDefault();
+            if (!this.noSelectAll) {
+              this.toggleSelectAllRecords();
+              e.preventDefault();
+            }
             break;
           case 67: // c
             this.inputBox.value = this.currentCell.textContent;
@@ -2925,7 +2928,9 @@ export default defineComponent({
       this.prevSelect = rowPos;
     },
     selectAllClick() {
-      this.toggleSelectAllRecords();
+      if (!this.noSelectAll) {
+        this.toggleSelectAllRecords();
+      }
     },
     reviseSelectedAfterTableChange() {
       this.rowIndex = {};
@@ -4072,6 +4077,8 @@ input.active:focus {
   background-color: #e9ecef;
   cursor: s-resize;
   z-index: 6;
+  font-weight: bold;
+  color: blue;
 }
 .systable thead th.no-sorting {
   cursor: auto;
