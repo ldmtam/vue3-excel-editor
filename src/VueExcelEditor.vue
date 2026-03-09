@@ -3996,6 +3996,7 @@ input.active:focus {
   white-space: nowrap;
   overflow-x: hidden;
   text-overflow: ellipsis;
+  vertical-align: top;
   /* animation: fadein 0.2s; */
 }
 .systable tbody td :deep(.badge) {
