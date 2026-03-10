@@ -3872,8 +3872,10 @@ input.active:focus {
   position: absolute;
   padding: 0;
   z-index: 4;
-  border: 2px solid rgb(108, 143, 108);
-  /* transition: all 0.04s linear; */
+  border: 2px solid #3b82f6;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+  transition: box-shadow 0.2s ease;
 }
 .no-transition {
   transition: none !important;
@@ -3881,11 +3883,12 @@ input.active:focus {
 .autocomplete-results {
   z-index: 15;
   position: fixed;
-  padding: 3px;
+  padding: 8px 0;
   margin: -1px;
-  background-color: lightyellow;
-  border: 1px solid rgb(108, 143, 108);
-  /*height: fit-content;*/
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   overflow-y: scroll;
   font-size: 0.88rem;
   max-width: 300px;
@@ -3913,7 +3916,9 @@ input.active:focus {
   cursor: pointer;
 }
 .autocomplete-result.select {
-  background-color: lightsteelblue;
+  background-color: #3b82f6;
+  color: white;
+  font-weight: 500;
 }
 .rb-square {
   width: 9px;
@@ -3922,11 +3927,12 @@ input.active:focus {
   border-left: 2px solid white;
   border-bottom: 0;
   border-right: 0;
-  background-color: rgb(108, 143, 108);
+  background-color: #3b82f6;
   position: absolute;
   bottom: -3px;
   right: -2px;
-  cursor: crosshair;
+  cursor: nwse-resize;
+  border-radius: 0 0 0 4px;
 }
 .input-box {
   opacity: 0;
@@ -3950,7 +3956,9 @@ input.active:focus {
   word-spacing: 0.02rem;
   line-height: 1.1;
   overflow: hidden;
-  border: 1px solid lightgray;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 .center-text {
   text-align: center;
@@ -3969,6 +3977,7 @@ input.active:focus {
   position: relative;
   width: 100%;
   scrollbar-width: none;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
 }
 .table-content :focus {
   outline: none;
@@ -4011,9 +4020,13 @@ input.active:focus {
 .systable tbody tr {
   background-color: white;
   text-align: left;
+  transition: background-color 0.15s ease;
+}
+.systable tbody tr:hover {
+  background-color: #f8fafc;
 }
 .systable tr.select td {
-  background-color: #bbb !important;
+  background-color: #e0e7ff !important;
 }
 .systable th,
 .systable td {
@@ -4033,7 +4046,11 @@ input.active:focus {
   overflow-x: hidden;
   text-overflow: ellipsis;
   vertical-align: top;
-  /* animation: fadein 0.2s; */
+  padding: 6px 8px;
+  transition: all 0.15s ease;
+}
+.systable tbody td:hover {
+  background-color: #f8fafc;
 }
 .systable tbody td :deep(.badge) {
   padding: 0px 10px;
@@ -4042,10 +4059,13 @@ input.active:focus {
 }
 
 .systable tbody td.link {
-  color: blue;
+  color: #3b82f6;
   cursor: pointer !important;
+  font-weight: 500;
+  transition: color 0.15s ease;
 }
 .systable tbody td.link:hover {
+  color: #2563eb;
   text-decoration: underline;
 }
 .systable tbody td.error {
@@ -4065,26 +4085,31 @@ input.active:focus {
 }
 .systable thead th,
 .systable thead td {
-  padding: 0.4rem 0.3rem;
-  font-weight: 400;
+  padding: 0.5rem 0.6rem;
+  font-weight: 500;
   top: 0;
   height: 29px;
   position: sticky;
   z-index: 5;
-  border-bottom: 1px solid lightgray;
+  border-bottom: 1px solid #e2e8f0;
+  transition: all 0.15s ease;
 }
 .systable thead th {
-  background-color: #e9ecef;
+  background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
   cursor: s-resize;
   z-index: 6;
-  font-weight: bold;
+  font-weight: 600;
+  color: #334155;
+}
+.systable thead th:hover {
+  background: linear-gradient(180deg, #e2e8f0 0%, #cbd5e1 100%);
 }
 .systable thead th.no-sorting {
   cursor: auto;
 }
 .systable thead td.column-filter {
   text-align: left;
-  background-color: #fffff2;
+  background: linear-gradient(180deg, #fefce8 0%, #fef9c3 100%);
   white-space: nowrap;
   overflow-x: hidden;
   text-overflow: ellipsis;
@@ -4118,7 +4143,7 @@ input.active:focus {
   background-position: right 5px top 8px;
 }
 .systable .first-col {
-  background: #e9ecef;
+  background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
   width: 40px;
   position: sticky;
   left: 0;
@@ -4130,6 +4155,8 @@ input.active:focus {
   padding-right: 0;
   overflow: hidden;
   z-index: 5;
+  color: #475569;
+  font-weight: 500;
 }
 .systable .sticky-column {
   position: sticky;
@@ -4188,12 +4215,12 @@ input.active:focus {
   z-index: 5;
   padding: 0;
   font-size: 12px;
-  color: dimgray;
-  background-color: white;
+  color: #64748b;
+  background-color: #ffffff;
   width: 100%;
   height: 25px;
   line-height: 2.3;
-  border-top: 1px solid lightgray;
+  border-top: 1px solid #e2e8f0;
   user-select: none;
 }
 .footer .left-block {
@@ -4219,11 +4246,12 @@ input.active:focus {
 .h-scroll {
   z-index: -1;
   position: absolute;
-  background-color: #f4f6f9;
+  background-color: #f1f5f9;
   height: 25px;
   margin-left: 40px;
   width: 65%;
   cursor: pointer;
+  border-radius: 0 0 0 4px;
 }
 .no-number .h-scroll {
   margin-left: 0px;
@@ -4236,15 +4264,21 @@ input.active:focus {
 
 .footer a {
   cursor: pointer;
-  color: #007bff;
+  color: #3b82f6;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  padding: 2px 6px;
+  border-radius: 4px;
 }
 .footer a.disabled {
   cursor: not-allowed;
-  color: gray;
+  color: #94a3b8;
   pointer-events: none;
+  opacity: 0.6;
 }
-.footer a:hover {
-  text-decoration: underline;
+.footer a:not(.disabled):hover {
+  background-color: #eff6ff;
+  text-decoration: none;
 }
 .v-scroll {
   display: inline-block;
@@ -4262,13 +4296,16 @@ input.active:focus {
   display: inline-block;
   width: 100%;
   z-index: 10;
-  background-color: #f4f6f9;
+  background-color: #f1f5f9;
   cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
-.v-scroll-button.focus,
 .v-scroll-button:hover,
-.v-scroll:hover .v-scroll-button {
-  background-color: lightgray;
+.v-scroll-button:focus {
+  background-color: #cbd5e1;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 .runner {
   font-size: 0.88rem;
@@ -4280,8 +4317,9 @@ input.active:focus {
   width: fit-content;
   z-index: 10;
   background-color: #e9ecef;
-  border-radius: 3px;
+  border-radius: 4px;
   white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 .runner:before {
   content: '';
@@ -4430,14 +4468,16 @@ a:disabled {
   position: fixed;
   font-size: 0.88rem;
   text-align: left;
-  color: gray;
-  background-color: lightyellow;
-  border: 1px solid lightgray;
-  padding: 0.5rem;
+  color: #475569;
+  background-color: #fefce8;
+  border: 1px solid #e2e8f0;
+  padding: 0.75rem 1rem;
   min-height: 1rem;
   max-width: 300px;
   word-wrap: break-word;
   z-index: 50;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 .norecord {
   z-index: 1;
