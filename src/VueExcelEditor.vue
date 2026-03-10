@@ -3433,7 +3433,7 @@ export default defineComponent({
         // Dynamically adjust height based on line count
         const lines = e.target.value.split('\n').length;
         const calculatedHeight = Math.max(24, lines * 24);
-        this.inputSquare.style.height = calculatedHeight + 6 + 'px';
+        this.inputSquare.style.height = calculatedHeight + 12 + 'px';
 
         // Also update the current cell height
         if (this.currentCell && lines > 1) {
